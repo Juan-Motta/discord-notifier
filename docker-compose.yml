@@ -1,0 +1,9 @@
+version: '3'
+services:
+  discord_bot:
+    build:
+      context: .
+    container_name: discord_bot
+    env_file:
+      - .env
+    restart: unless-stopped
