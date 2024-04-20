@@ -4,6 +4,7 @@ import os
 # Environment variables
 WEB_SERVER_URL = os.getenv("WEB_SERVER_URL")
 DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
+TIME = os.getenv("TIME", 60)
 
 
 def query_web_server():
@@ -27,4 +28,4 @@ if __name__ == "__main__":
     while True:
         print("Querying web server...")
         query_web_server()
-        time.sleep(300)
+        time.sleep(int(TIME))
