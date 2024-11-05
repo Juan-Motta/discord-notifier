@@ -20,7 +20,7 @@ def query_web_server():
 def send_failure_to_discord(message):
     notify = True
     # Notify only during the day
-    if NOTIFY_AT_NIGHT == "true":
+    if NOTIFY_AT_NIGHT == "false":
         hour = int(time.strftime("%H"))
         if hour < 8 or hour > 20:
             notify = False
