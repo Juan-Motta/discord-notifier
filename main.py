@@ -11,7 +11,7 @@ def query_web_server():
     try:
         print(WEB_SERVER_URL)
         response = requests.get(WEB_SERVER_URL)
-        print(f"Status code: {response.status_code} at {time.strftime("%H:%M")}")
+        print(f"""Status code: {response.status_code} at {time.strftime("%H:%M")}""")
         response.raise_for_status()
     except requests.RequestException as e:
         send_failure_to_discord(str(e))
