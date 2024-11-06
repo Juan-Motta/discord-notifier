@@ -24,7 +24,7 @@ def send_failure_to_discord(message):
     # Notify only during the day
     if NOTIFY_AT_NIGHT == "false":
         hour = int(time.strftime("%H"))
-        if hour < 13 or hour > 1:
+        if  hour > 2 and hour < 13:
             print("Not notifying at night")
             notify = False
     if notify:
