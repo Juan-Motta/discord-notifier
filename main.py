@@ -20,6 +20,7 @@ def query_web_server():
 
 
 def send_failure_to_discord(message):
+    print("Validating if we should notify")
     notify = True
     # Notify only during the day
     if NOTIFY_AT_NIGHT == "false":
