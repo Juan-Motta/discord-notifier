@@ -12,7 +12,7 @@ def query_web_server():
         print(WEB_SERVER_URL)
         response = requests.get(WEB_SERVER_URL)
         print(f"""Status code: {response.status_code} at {time.strftime("%H:%M")}""")
-        if response.status_code != 200:
+        if int(response.status_code) != 200:
             send_failure_to_discord(f"Error querying web server. Status code: {response.status_code}")
     except requests.RequestException as e:
         print(f"Error querying web server {e}")
