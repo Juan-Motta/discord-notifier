@@ -14,6 +14,7 @@ def query_web_server():
         print(f"""Status code: {response.status_code} at {time.strftime("%H:%M")}""")
         response.raise_for_status()
     except requests.RequestException as e:
+        print(f"Error querying web server {e}")
         send_failure_to_discord(str(e))
 
 
@@ -23,8 +24,10 @@ def send_failure_to_discord(message):
     if NOTIFY_AT_NIGHT == "false":
         hour = int(time.strftime("%H"))
         if hour < 13 or hour > 1:
+            print("Not notifying at night")
             notify = False
     if notify:
+        print(f"Sending message to discord: {message}")
         requests.post(
             DISCORD_WEBHOOK_URL,
             json={"username": "Error backend", "content": message},
